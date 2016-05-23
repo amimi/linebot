@@ -13,14 +13,6 @@ $hashi_icon = "http://dl.profile.line-cdn.net/0m0350b94372513e9e62c4fe9366de947d
 
 $ami_mid = 'uba9d6e04158507756b57b4c3b952709e';
 
-// メッセージ受信
-$json_string = file_get_contents('php://input');
-$jsonObj = json_decode($json_string);
-$content = $jsonObj->result{0}->content;
-$text = $content->text;
-$from = $content->from;
-$message_id = $content->id;
-$content_type = $content->contentType;
 
 	// テキスト以外を送ってきた場合
 	// テキストで返事をする場合

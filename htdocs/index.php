@@ -27,6 +27,9 @@ error_log(print_r($content, TRUE));
 // ユーザ情報取得
 api_get_user_profile_request($from);
 
+// メッセージ情報取得
+api_get_message_content_request($message_id);
+
 if($content_type == CONTENT_TYPE_TEXT)
 {
 	// テキストを送ってきた場合
@@ -105,5 +108,23 @@ function api_get_user_profile_request($mid) {
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $output = curl_exec($curl);
     error_log($output);
+}
+
+/**
+ * メッセージ情報取得
+ */
+function api_get_message_content_request($message_id) {
+    $url = "https://trialbot-api.line.me/v1/bot/message/{$message_id}/content";
+    $headers = array(
+        "X-Line-ChannelID: " . CHANNEL_ID,
+        "X-Line-ChannelSecret: " . CHANNEL_SECRET,
+        "X-Line-Trusted-User-With-ACL: " . MID
+    ); 
+
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    $output = curl_exec($curl);
+    file_put_contents("/tmp/{$message_id}", $output);
 }
 
