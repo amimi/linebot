@@ -13,7 +13,7 @@ $from = $content->from;
 $message_id = $content->id;
 $content_type = $content->contentType;
 
-error_log(print_r($from, TRUE));
+error_log(print_r($content, TRUE));
 
 // テキストで返事をする場合
 $response_format_text = array('contentType'=>1,"toType"=>1,"text"=>"hello");
