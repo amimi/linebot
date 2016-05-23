@@ -6,14 +6,14 @@ const MID = 'u1ad1829c62e8b0d7fb8af24a3e1c4bdc';
 
 // メッセージ受信
 $json_string = file_get_contents('php://input');
-$jsonObj = json_decode($json_string);
-$content = $json_object->result{0}->content;
+$ = json_decode($json_string);
+$content = $jsonObj->result{0}->content;
 $text = $content->text;
 $from = $content->from;
 $message_id = $content->id;
 $content_type = $content->contentType;
 
-error_log($from);
+error_log(print_r($from, TRUE));
 
 // テキストで返事をする場合
 $response_format_text = array('contentType'=>1,"toType"=>1,"text"=>"hello");
