@@ -117,7 +117,6 @@ function api_post_content()
  * ユーザー情報取得
  */
 function api_get_user_profile_request($mid) {
-$mid = MID;
     $url = "https://trialbot-api.line.me/v1/profiles?mids={$mid}";
     $headers = [
         "X-Line-ChannelID: " . CHANNEL_ID,
