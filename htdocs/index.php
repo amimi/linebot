@@ -50,8 +50,8 @@ else
 $response_format_image = [
 	'contentType'=> CONTENT_TYPE_IMAGE,
 	"toType"=> 1,
-	'originalContentUrl'=>$hashi_icon
-//	"previewImageUrl"=>"サムネイル画像URL"
+	'originalContentUrl'=>$hashi_icon,
+	"previewImageUrl"=> $hashi_icon
 ];
 
 // 他にも色々ある
