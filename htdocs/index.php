@@ -19,6 +19,7 @@ $jsonObj = json_decode($json_string);
 $content = $jsonObj->result{0}->content;
 $text = $content->text;
 $from = $content->from;
+$fromChannel = $content->fromChannel;
 $message_id = $content->id;
 $content_type = $content->contentType;
 
@@ -76,7 +77,7 @@ function api_post_content()
 {
 	// toChannelとeventTypeは固定値なので、変更不要。
 	$post_data = [
-		"to"=>[$GLOBALS['from']],
+		"to"=>[$GLOBALS['fromChannel']],
 		"toChannel"=>"1383378250",
 		"eventType"=>"138311608800106203",
 		"content"=>$GLOBALS['res_content']
@@ -122,11 +123,11 @@ function api_get_user_profile_request($mid) {
  */
 function api_get_message_content_request($message_id) {
     $url = "https://trialbot-api.line.me/v1/bot/message/{$message_id}/content";
-    $headers = array(
+    $headers = [
         "X-Line-ChannelID: " . CHANNEL_ID,
         "X-Line-ChannelSecret: " . CHANNEL_SECRET,
         "X-Line-Trusted-User-With-ACL: " . MID
-    ); 
+    ; 
 
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
