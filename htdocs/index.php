@@ -24,11 +24,22 @@ api_get_user_profile_request($from);
 
 if($content_type == CONTENT_TYPE_TEXT)
 {
+	// テキストを送ってきた場合
 	// テキストで返事をする場合
 	$response_format_text = [
 		'contentType'=> CONTENT_TYPE_TEXT,
 		"toType"=> 1,
 		"text"=> $text
+	];
+}
+else
+{
+	// テキスト以外を送ってきた場合
+	// テキストで返事をする場合
+	$response_format_text = [
+		'contentType'=> CONTENT_TYPE_TEXT,
+		"toType"=> 1,
+		"text"=> 'なんなんだよ'
 	];
 }
 
@@ -39,6 +50,7 @@ $response_format_image = [
 	'originalContentUrl'=>"画像URL",
 	"previewImageUrl"=>"サムネイル画像URL"
 ];
+
 // 他にも色々ある
 // ....
 
@@ -69,11 +81,11 @@ curl_close($ch);
  */
 function api_get_user_profile_request($mid) {
     $url = "https://trialbot-api.line.me/v1/profiles?mids={$mid}";
-    $headers = array(
-        "X-Line-ChannelID: {CHANNEL_ID}",
-        "X-Line-ChannelSecret: {CHANNEL_SECRET}",
-        "X-Line-Trusted-User-With-ACL: {MID}"
-    ); 
+    $headers = [
+        "X-Line-ChannelID: " . CHANNEL_ID,
+        "X-Line-ChannelSecret: " . CHANNEL_SECRET,
+        "X-Line-Trusted-User-With-ACL: " . MID
+    ]; 
 
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
