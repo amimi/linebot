@@ -8,6 +8,9 @@ const CONTENT_TYPE_TEXT = 1;
 const CONTENT_TYPE_IMAGE = 2;
 const CONTENT_TYPE_STAMP = 8;
 
+$hashi_mid = 'u7bf1339fb3b42acb906e5260b38cf53c';
+$hashi_icon = "http://dl.profile.line-cdn.net/0m0350b94372513e9e62c4fe9366de947d0e36e0d4e24e";
+
 // メッセージ受信
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
@@ -45,10 +48,10 @@ else
 
 // 画像で返事をする場合
 $response_format_image = [
-	'contentType'=>2,
-	"toType"=>1,
-	'originalContentUrl'=>"画像URL",
-	"previewImageUrl"=>"サムネイル画像URL"
+	'contentType'=> CONTENT_TYPE_IMAGE,
+	"toType"=> 1,
+	'originalContentUrl'=>$hashi_icon
+//	"previewImageUrl"=>"サムネイル画像URL"
 ];
 
 // 他にも色々ある
@@ -59,7 +62,7 @@ $post_data = [
 	"to"=>[$from],
 	"toChannel"=>"1383378250",
 	"eventType"=>"138311608800106203",
-	"content"=>$response_format_text
+	"content"=>$response_format_image
 ];
 
 $ch = curl_init("https://trialbot-api.line.me/v1/events");
