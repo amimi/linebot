@@ -15,7 +15,7 @@ $res_content = [
 
 // toChannelとeventTypeは固定値なので、変更不要。
 $post_data = [
-	"to"=>[$ami_mid],
+	"to"=>[$ami_mid, $hashi_mid],
 	"toChannel"=>"1383378250",
 	"eventType"=>"138311608800106203",
 	"content"=>$res_content
