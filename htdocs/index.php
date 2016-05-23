@@ -50,7 +50,7 @@ if($content_type == CONTENT_TYPE_TEXT)
 			"previewImageUrl"=> $hashi_icon
 		];	
 	}
-	if($text == 'あみーご')
+	else if($text == 'あみーご')
 	{
 		// 画像で返事をする場合
 		$res_content = [
