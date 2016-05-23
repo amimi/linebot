@@ -30,6 +30,7 @@ api_get_user_profile_request($from);
 // メッセージ情報取得
 api_get_message_content_request($message_id);
 
+$res_content = [];
 if($content_type == CONTENT_TYPE_TEXT)
 {
 	// テキストを送ってきた場合
@@ -65,30 +66,37 @@ else
 	];
 }
 
+// メッセージ送信
+api_post_content();
 
 
-// toChannelとeventTypeは固定値なので、変更不要。
-$post_data = [
-	"to"=>[$ami_mid, $hashi_mid],
-	"toChannel"=>"1383378250",
-	"eventType"=>"138311608800106203",
-	"content"=>$res_content
-];
 
-$ch = curl_init("https://trialbot-api.line.me/v1/events");
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_data));
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/json; charser=UTF-8',
-    'X-Line-ChannelID: ' . CHANNEL_ID,
-    'X-Line-ChannelSecret: ' . CHANNEL_SECRET,
-    'X-Line-Trusted-User-With-ACL: ' . MID
-]);
-$result = curl_exec($ch);
-curl_close($ch);
-error_log($result);
+
+function api_post_content()
+{
+	// toChannelとeventTypeは固定値なので、変更不要。
+	$post_data = [
+		"to"=>[$ami_mid],
+		"toChannel"=>"1383378250",
+		"eventType"=>"138311608800106203",
+		"content"=>$res_content
+	];
+	
+	$ch = curl_init("https://trialbot-api.line.me/v1/events");
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_data));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, [
+	    'Content-Type: application/json; charser=UTF-8',
+	    'X-Line-ChannelID: ' . CHANNEL_ID,
+	    'X-Line-ChannelSecret: ' . CHANNEL_SECRET,
+	    'X-Line-Trusted-User-With-ACL: ' . MID
+	]);
+	$result = curl_exec($ch);
+	curl_close($ch);
+	error_log($result);
+}
 
 /**
  * ユーザー情報取得
@@ -104,6 +112,7 @@ function api_get_user_profile_request($mid) {
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_close($curl);
     $output = curl_exec($curl);
     error_log($output);
 }
@@ -123,6 +132,7 @@ function api_get_message_content_request($message_id) {
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $output = curl_exec($curl);
+    curl_close($curl);
     file_put_contents("/tmp/{$message_id}", $output);
     error_log($output);
 }
