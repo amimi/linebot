@@ -76,10 +76,10 @@ function api_post_content()
 {
 	// toChannelとeventTypeは固定値なので、変更不要。
 	$post_data = [
-		"to"=>[$ami_mid],
+		"to"=>[$GLOBALS['ami_mid']],
 		"toChannel"=>"1383378250",
 		"eventType"=>"138311608800106203",
-		"content"=>$res_content
+		"content"=>$GLOBALS['res_content']
 	];
 	
 	$ch = curl_init("https://trialbot-api.line.me/v1/events");
