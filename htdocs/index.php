@@ -77,7 +77,7 @@ function api_post_content()
 {
 	// toChannelとeventTypeは固定値なので、変更不要。
 	$post_data = [
-		"to"=>[$GLOBALS['fromChannel']],
+		"to"=>[$GLOBALS['from']],
 		"toChannel"=>"1383378250",
 		"eventType"=>"138311608800106203",
 		"content"=>$GLOBALS['res_content']
