@@ -8,6 +8,9 @@ const CONTENT_TYPE_TEXT = 1;
 const CONTENT_TYPE_IMAGE = 2;
 const CONTENT_TYPE_STAMP = 8;
 
+$bot_icon = 'http://dl.profile.line-cdn.net/0m011df07972515fbed3c72fcffcc2ff99ae1c6d445cae';
+$bot_prev = 'http://linebot.amilktea.com/img/ami_bot_prev.jpg';
+
 $hashi_mid = 'u7bf1339fb3b42acb906e5260b38cf53c';
 $hashi_icon = "http://dl.profile.line-cdn.net/0m0350b94372513e9e62c4fe9366de947d0e36e0d4e24e";
 $hashi_prev = 'http://linebot.amilktea.com/img/hashi_prev.jpg';
@@ -46,6 +49,16 @@ if($content_type == CONTENT_TYPE_TEXT)
 			'originalContentUrl'=>$hashi_icon,
 			"previewImageUrl"=> $hashi_icon
 		];	
+	}
+	if($text == 'あみーご')
+	{
+		// 画像で返事をする場合
+		$res_content = [
+			'contentType'=> CONTENT_TYPE_IMAGE,
+			"toType"=> 1,
+			'originalContentUrl'=>$bot_icon,
+			"previewImageUrl"=> $bot_prev
+		];		
 	}
 	else
 	{
