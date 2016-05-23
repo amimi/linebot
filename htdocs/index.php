@@ -127,7 +127,7 @@ function api_get_message_content_request($message_id) {
         "X-Line-ChannelID: " . CHANNEL_ID,
         "X-Line-ChannelSecret: " . CHANNEL_SECRET,
         "X-Line-Trusted-User-With-ACL: " . MID
-    ; 
+    ]; 
 
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
