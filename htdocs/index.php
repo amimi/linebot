@@ -6,7 +6,7 @@ const MID = 'u1ad1829c62e8b0d7fb8af24a3e1c4bdc';
 
 // メッセージ受信
 $json_string = file_get_contents('php://input');
-$ = json_decode($json_string);
+$jsonObj = json_decode($json_string);
 $content = $jsonObj->result{0}->content;
 $text = $content->text;
 $from = $content->from;
