@@ -1,12 +1,5 @@
 <?php
-
-const CHANNEL_ID = '1462645442';
-const CHANNEL_SECRET = '1c8ed524537384435c2f3e9e93a872ab';
-const MID = 'u1ad1829c62e8b0d7fb8af24a3e1c4bdc';
-
-const CONTENT_TYPE_TEXT = 1;
-const CONTENT_TYPE_IMAGE = 2;
-const CONTENT_TYPE_STAMP = 8;
+include_once(../config.php);
 
 $bot_icon = 'http://dl.profile.line-cdn.net/0m011df07972515fbed3c72fcffcc2ff99ae1c6d445cae';
 $bot_prev = 'http://linebot.amilktea.com/img/ami_bot_prev.jpg';

@@ -1,12 +1,5 @@
 <?php
-
-const CHANNEL_ID = '1462645442';
-const CHANNEL_SECRET = '1c8ed524537384435c2f3e9e93a872ab';
-const MID = 'u1ad1829c62e8b0d7fb8af24a3e1c4bdc';
-
-const CONTENT_TYPE_TEXT = 1;
-const CONTENT_TYPE_IMAGE = 2;
-const CONTENT_TYPE_STAMP = 8;
+include_once(../config.php);
 
 $hashi_mid = 'u7bf1339fb3b42acb906e5260b38cf53c';
 $hashi_icon = "http://dl.profile.line-cdn.net/0m0350b94372513e9e62c4fe9366de947d0e36e0d4e24e";
