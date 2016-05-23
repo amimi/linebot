@@ -67,9 +67,6 @@ else
 
 
 
-// 他にも色々ある
-// ....
-
 // toChannelとeventTypeは固定値なので、変更不要。
 $post_data = [
 	"to"=>[$ami_mid, $hashi_mid],
@@ -91,6 +88,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
 ]);
 $result = curl_exec($ch);
 curl_close($ch);
+error_log($result);
 
 /**
  * ユーザー情報取得
@@ -126,5 +124,6 @@ function api_get_message_content_request($message_id) {
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $output = curl_exec($curl);
     file_put_contents("/tmp/{$message_id}", $output);
+    error_log($output);
 }
 
