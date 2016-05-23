@@ -1,5 +1,5 @@
 <?php
-include_once(dirname(__FILE__) . '../config.php');
+require_once(dirname(__FILE__) . '/../config.php');
 
 $bot_icon = 'http://dl.profile.line-cdn.net/0m011df07972515fbed3c72fcffcc2ff99ae1c6d445cae';
 $bot_prev = 'http://linebot.amilktea.com/img/ami_bot_prev.jpg';

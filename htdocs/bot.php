@@ -1,5 +1,5 @@
 <?php
-include_once(dirname(__FILE__) . '../config.php');
+require_once(dirname(__FILE__) . '/../config.php');
 
 $hashi_mid = 'u7bf1339fb3b42acb906e5260b38cf53c';
 $hashi_icon = "http://dl.profile.line-cdn.net/0m0350b94372513e9e62c4fe9366de947d0e36e0d4e24e";
