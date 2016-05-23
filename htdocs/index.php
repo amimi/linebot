@@ -115,8 +115,8 @@ $mid = MID;
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    curl_close($curl);
     $output = curl_exec($curl);
+    curl_close($curl);
     error_log($output);
 }
 
