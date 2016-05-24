@@ -23,6 +23,8 @@ $content_type = $content->contentType;
 
 error_log(print_r($content, TRUE));
 
+
+
 // ユーザ情報取得
 api_get_user_profile_request($from);
 
@@ -111,25 +113,7 @@ function api_post_content()
 	error_log($result);
 }
 
-/**
- * ユーザー情報取得
- */
-function api_get_user_profile_request($mid) {
-    $url = "https://trialbot-api.line.me/v1/profiles?mids={$mid}";
-    $headers = [
-        'X-Line-ChannelID: ' . CHANNEL_ID,
-        'X-Line-ChannelSecret: ' . CHANNEL_SECRET,
-        'X-Line-Trusted-User-With-ACL: ' . MID
-    ]; 
 
-    $curl = curl_init($url);
-    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    $output = curl_exec($curl);
-    curl_close($curl);
-    error_log('get user info.');
-    error_log($output);
-}
 
 /**
  * メッセージ情報取得
