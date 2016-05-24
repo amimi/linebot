@@ -7,6 +7,7 @@ class Cron extends Linebot
 	{
 		echo print_r($argv, true);
 		$func = '$this->' . $argv[1];
+		echo $func;
 		if(function_exists($func))
 		{
 			$func();
