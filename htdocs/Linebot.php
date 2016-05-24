@@ -12,8 +12,12 @@ class Linebot {
 	const CONTENT_TYPE_STICKER = 8;
 	const CONTENT_TYPE_CONTACT = 10;
 
+	public $bot_icon = 'http://dl.profile.line-cdn.net/0m011df07972515fbed3c72fcffcc2ff99ae1c6d445cae';
+	public $bot_prev = 'http://linebot.amilktea.com/img/ami_bot_prev.jpg';
+
 	public $hashi_mid = 'u7bf1339fb3b42acb906e5260b38cf53c';
 	public $hashi_icon = 'http://dl.profile.line-cdn.net/0m0350b94372513e9e62c4fe9366de947d0e36e0d4e24e';
+	public $hashi_prev = 'http://linebot.amilktea.com/img/hashi_prev.jpg';
 
 	public $ami_mid = 'uba9d6e04158507756b57b4c3b952709e';
 
@@ -63,6 +67,27 @@ class Linebot {
 		
 		error_log('send message');
 		error_log($result);
+	}
+	
+	/**
+	 * メッセージ情報取得
+	 */
+	public function api_get_message_content_request($message_id) {
+	    $url = "https://trialbot-api.line.me/v1/bot/message/{$message_id}/content";
+	    $headers = [
+	        'X-Line-ChannelID: ' . CHANNEL_ID,
+	        'X-Line-ChannelSecret: ' . CHANNEL_SECRET,
+	        'X-Line-Trusted-User-With-ACL: ' . MID
+	    ]; 
+
+	    $curl = curl_init($url);
+	    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+	    $output = curl_exec($curl);
+	    curl_close($curl);
+	    file_put_contents("/tmp/{$message_id}", $output);
+	    error_log('get message info.');
+	    error_log($output);
 	}
 }
 
