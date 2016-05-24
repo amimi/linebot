@@ -6,18 +6,29 @@ $hashi_icon = 'http://dl.profile.line-cdn.net/0m0350b94372513e9e62c4fe9366de947d
 
 $ami_mid = 'uba9d6e04158507756b57b4c3b952709e';
 
+// メッセージ受信
+$json_string = file_get_contents('php://input');
+$jsonObj = json_decode($json_string);
+$content = $jsonObj->result{0}->content;
+$text = $content->text;
+$from = $content->from;
+$fromChannel = $content->fromChannel;
+$message_id = $content->id;
+$content_type = $content->contentType;
+$content_metadata = $content->contentMetadata;
 
 	// テキスト以外を送ってきた場合
 	// テキストで返事をする場合
 	$res_content = [
-		'contentType'=> CONTENT_TYPE_TEXT,
+		'contentType'=> CONTENT_TYPE_CONTACT,
 		"toType"=> 1,
-		"text"=> 'なーにしてんの？'
+		"text"=> 'なーにしてんの？',
+		'mid' => $ami_mid
 	];
 
 // toChannelとeventTypeは固定値なので、変更不要。
 $post_data = [
-	"to"=>[$ami_mid, $hashi_mid],
+	"to"=>[$ami_mid],
 	"toChannel"=>"1383378250",
 	"eventType"=>"138311608800106203",
 	"content"=>$res_content
