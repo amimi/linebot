@@ -10,11 +10,11 @@ class Cron extends Linebot
 		if(function_exists($func))
 		{
 			$func();
-			error_log('実行しますよ：' + "{$this->$func}");
+			error_log('実行しますよ：' + $func);
 		}
 		else
 		{
-			error_log('そんな関数ありませんよ' + "{$this->$func}");
+			error_log('そんな関数ありませんよ' + $func);
 		}
 	}
 	
