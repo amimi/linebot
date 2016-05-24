@@ -21,7 +21,7 @@ class Cron extends Linebot
 	public function goodmorning()
 	{
 		$res_content = [
-			'contentType'=> CONTENT_TYPE_TEXT,
+			'contentType'=> parent::CONTENT_TYPE_TEXT,
 			"toType"=> 1,
 			"text"=> 'おっはよーーー'
 		];
