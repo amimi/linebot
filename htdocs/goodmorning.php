@@ -6,10 +6,10 @@ class Cron extends Linebot
 	public function __construct($argv)
 	{
 		echo print_r($argv, true);
-		$func = $argv[1];
-		if(function_exists($this->$func))
+		$func = '$this->' . $argv[1];
+		if(function_exists($func))
 		{
-			$this->{$func}();
+			$func();
 			error_log('実行しますよ：' + "{$this->$func}");
 		}
 		else
