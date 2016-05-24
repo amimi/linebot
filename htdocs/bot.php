@@ -1,6 +1,8 @@
 <?php
 require_once(dirname(__FILE__) . '/Linebot.php');
 
+new Bot;
+
 class Bot extends Linebot {
 	
 	public function __construct()
