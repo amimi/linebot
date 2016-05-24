@@ -7,7 +7,7 @@ $hashi_icon = 'http://dl.profile.line-cdn.net/0m0350b94372513e9e62c4fe9366de947d
 $ami_mid = 'uba9d6e04158507756b57b4c3b952709e';
 
 $res_content = [
-	'contentType'=> CONTENT_TYPE_TEXT,
+	'contentType'=> CONTENT_TYPE_STICKER,
 	"toType"=> 1,
 	"text"=> 'aa',
 	'mid' => $ami_mid
