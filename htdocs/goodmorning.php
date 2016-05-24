@@ -3,7 +3,7 @@ require_once(dirname(__FILE__) . '/Linebot.php');
 
 class Cron extends Linebot
 {
-	public function __construct()
+	public function __construct($argv)
 	{
 		$func = $argv[1];
 		if(function_exists($this->$func))
@@ -28,4 +28,4 @@ class Cron extends Linebot
 	}
 }
 
-new Cron;
+new Cron($argv);
