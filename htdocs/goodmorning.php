@@ -10,7 +10,7 @@ $ami_mid = 'uba9d6e04158507756b57b4c3b952709e';
 $res_content = [
 	'contentType'=> CONTENT_TYPE_TEXT,
 	"toType"=> 1,
-	"text"=> 'おはよぉございまぁすっ'
+	"text"=> 'おっはよーーー'
 ];
 
 // toChannelとeventTypeは固定値なので、変更不要。
