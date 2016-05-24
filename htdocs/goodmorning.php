@@ -7,7 +7,7 @@ class Cron extends Linebot
 	{
 		echo print_r($argv, true);
 		$func = $argv[1];
-		if(function_exists($this->{$func}))
+		if(function_exists($this->$func))
 		{
 			$this->{$func}();
 			error_log('実行しますよ：' + "{$this->$func}");
