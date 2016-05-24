@@ -9,7 +9,7 @@ $ami_mid = 'uba9d6e04158507756b57b4c3b952709e';
 	// テキスト以外を送ってきた場合
 	// テキストで返事をする場合
 	$res_content = [
-		'contentType'=> CONTENT_TYPE_STICKER,
+		'contentType'=> CONTENT_TYPE_TEXT,
 		"toType"=> 1,
 		"text"=> '',
 		'mid' => $ami_mid
