@@ -44,6 +44,10 @@ class Linebot {
 	
 	public function send_message($to = [], $content)
 	{
+		if(!is_array($to))
+		{
+			$to = (array)$to;
+		}
 		$url = 'https://trialbot-api.line.me/v1/events';
 		// toChannelとeventTypeは固定値なので、変更不要。
 		$post_data = [
