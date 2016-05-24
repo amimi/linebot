@@ -13,9 +13,12 @@ $res_content = [
 	'mid' => $ami_mid
 	,'contentMetadata' => [
 		'AT_RECV_MODE' => 2,
-		'STKVER' => 100,
-		'STKID' => 108,
-		'STKPKGID' => 1,
+//		'STKVER' => 100,
+		'STKVER' => 2,
+//		'STKID' => 108,
+		'STKID' => 10848946,
+//		'STKPKGID' => 1,
+		'STKPKGID' => 6210,
 		'SKIP_BADGE_COUNT' => true
 	]
 ];
