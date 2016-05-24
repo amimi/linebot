@@ -6,7 +6,7 @@ class Bot extends Linebot
 	public function __construct()
 	{
 		$res_content = [
-			'contentType'=> self::CONTENT_TYPE_STICKER,
+			'contentType'=> parent::CONTENT_TYPE_STICKER,
 			'toType'=> 1,
 			'text'=> 'aa',
 			'mid' => $this->ami_mid,

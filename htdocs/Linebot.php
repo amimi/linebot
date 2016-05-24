@@ -37,12 +37,14 @@ class Linebot {
 	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 	    $output = curl_exec($curl);
 	    curl_close($curl);
+	    
 	    error_log('get user info.');
 	    error_log($output);
 	}
 	
 	public function send_message($to = [], $content)
 	{
+		$url = 'https://trialbot-api.line.me/v1/events';
 		// toChannelとeventTypeは固定値なので、変更不要。
 		$post_data = [
 			'to' => $to,
@@ -51,7 +53,7 @@ class Linebot {
 			'content' => $content
 		];
 
-		$ch = curl_init("https://trialbot-api.line.me/v1/events");
+		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

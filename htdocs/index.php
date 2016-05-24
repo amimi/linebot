@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/Linebot.php');
 
-class Bot extends Linebot
+class Receive extends Linebot
 {
 	public function __construct()
 	{
@@ -25,7 +25,7 @@ class Bot extends Linebot
 		$this->api_get_message_content_request($message_id);
 		
 		$res_content = [];
-		if($content_type == self::CONTENT_TYPE_TEXT)
+		if($content_type == parent::CONTENT_TYPE_TEXT)
 		{
 			// テキストを送ってきた場合
 
@@ -33,29 +33,29 @@ class Bot extends Linebot
 			{
 				// 画像で返事をする場合
 				$res_content = [
-					'contentType'=> self::CONTENT_TYPE_IMAGE,
-					"toType"=> 1,
-					'originalContentUrl'=>$hashi_icon,
-					"previewImageUrl"=> $hashi_icon
+					'contentType'=> parent::CONTENT_TYPE_IMAGE,
+					'toType'=> 1,
+					'originalContentUrl'=>$this->hashi_icon,
+					'previewImageUrl'=> $this->hashi_icon
 				];	
 			}
 			else if($text == 'あみーご')
 			{
 				// 画像で返事をする場合
 				$res_content = [
-					'contentType'=> self::CONTENT_TYPE_IMAGE,
-					"toType"=> 1,
-					'originalContentUrl'=>$bot_icon,
-					"previewImageUrl"=> $bot_prev
+					'contentType'=> parent::CONTENT_TYPE_IMAGE,
+					'toType'=> 1,
+					'originalContentUrl'=>$this->bot_icon,
+					'previewImageUrl'=> $this->bot_prev
 				];		
 			}
 			else
 			{
 				// テキストでオウム返し
 				$res_content = [
-					'contentType'=> self::CONTENT_TYPE_TEXT,
-					"toType"=> 1,
-					"text"=> $text
+					'contentType'=> parent::CONTENT_TYPE_TEXT,
+					'toType'=> 1,
+					'text'=> $text
 				];
 			}
 		}
@@ -64,7 +64,7 @@ class Bot extends Linebot
 			// テキスト以外を送ってきた場合
 			// テキストで返事をする場合
 			$res_content = [
-				'contentType'=> self::CONTENT_TYPE_TEXT,
+				'contentType'=> parent::CONTENT_TYPE_TEXT,
 				"toType"=> 1,
 				"text"=> 'なんなんだよ'
 			];
@@ -74,4 +74,4 @@ class Bot extends Linebot
 		
 	}
 }
-new Bot;
+new Receive;
