@@ -20,7 +20,7 @@ $content_metadata = $content->contentMetadata;
 	// テキスト以外を送ってきた場合
 	// テキストで返事をする場合
 	$res_content = [
-		'contentType'=> CONTENT_TYPE_CONTACT,
+		'contentType'=> CONTENT_TYPE_TEXT,
 		"toType"=> 1,
 		"text"=> 'なーにしてんの？',
 		'mid' => $ami_mid
