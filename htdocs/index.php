@@ -15,6 +15,7 @@ $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
 $content = $jsonObj->result{0}->content;
 $text = $content->text;
+$to = $content->to;
 $from = $content->from;
 $fromChannel = $content->fromChannel;
 $message_id = $content->id;
