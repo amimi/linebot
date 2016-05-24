@@ -17,7 +17,7 @@ $ami_mid = 'uba9d6e04158507756b57b4c3b952709e';
 			'AT_RECV_MODE' => 2,
 			'STKVER' => 2,
 			'STKID' => 10848946,
-			'STKPKGID' => 6210
+			'STKPKGID' => 6210,
 			'SKIP_BADGE_COUNT' => true
 		]
 	];
