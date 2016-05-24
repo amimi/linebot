@@ -6,21 +6,19 @@ $hashi_icon = 'http://dl.profile.line-cdn.net/0m0350b94372513e9e62c4fe9366de947d
 
 $ami_mid = 'uba9d6e04158507756b57b4c3b952709e';
 
-	// テキスト以外を送ってきた場合
-	// テキストで返事をする場合
-	$res_content = [
-		'contentType'=> CONTENT_TYPE_TEXT,
-		"toType"=> 1,
-		"text"=> '',
-		'mid' => $ami_mid
-		,'contentMetadata' => [
-			'AT_RECV_MODE' => 2,
-			'STKVER' => 2,
-			'STKID' => 10848946,
-			'STKPKGID' => 6210,
-			'SKIP_BADGE_COUNT' => true
-		]
-	];
+$res_content = [
+	'contentType'=> CONTENT_TYPE_TEXT,
+	"toType"=> 1,
+	"text"=> '',
+	'mid' => $ami_mid
+	,'contentMetadata' => [
+		'AT_RECV_MODE' => 2,
+		'STKVER' => 2,
+		'STKID' => 10848946,
+		'STKPKGID' => 6210,
+		'SKIP_BADGE_COUNT' => true
+	]
+];
 
 // toChannelとeventTypeは固定値なので、変更不要。
 $post_data = [
