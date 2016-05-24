@@ -5,6 +5,7 @@ class Cron extends Linebot
 {
 	public function __construct($argv)
 	{
+		echo print_r($argv, true);
 		$func = $argv[1];
 		if(function_exists($this->$func))
 		{
@@ -27,5 +28,5 @@ class Cron extends Linebot
 		$this->send_message($this->ami_mid, $res_content);
 	}
 }
-echo print_r($argv, true);
+//echo print_r($argv, true);
 new Cron($argv);
