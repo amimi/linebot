@@ -27,5 +27,5 @@ class Cron extends Linebot
 		$this->send_message($this->ami_mid, $res_content);
 	}
 }
-
+echo print_r($argv, true);
 new Cron($argv);
