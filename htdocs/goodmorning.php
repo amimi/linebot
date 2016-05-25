@@ -26,6 +26,16 @@ class Cron extends Linebot
 		];
 		$this->send_message([$this->ami_mid, $this->hashi_mid], $res_content);
 	}
+
+	public function otsukare()
+	{
+		$res_content = [
+			'contentType'=> parent::CONTENT_TYPE_TEXT,
+			"toType"=> 1,
+			"text"=> '今日もおつかれさまでした。'
+		];
+		$this->send_message([$this->ami_mid, $this->hashi_mid], $res_content);
+	}
 }
 
 new Cron($argv);
