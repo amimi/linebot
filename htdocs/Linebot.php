@@ -84,7 +84,8 @@ class Linebot {
 	/**
 	 * メッセージ情報取得
 	 */
-	public function api_get_message_content_request($message_id) {
+	public function api_get_message_content_request($message_id)
+	{
 	    $url = "https://trialbot-api.line.me/v1/bot/message/{$message_id}/content";
 	    $headers = [
 	        'X-Line-ChannelID: ' . CHANNEL_ID,
