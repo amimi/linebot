@@ -1,10 +1,17 @@
 <?php
-require_once(dirname(__FILE__) . '/..//Linebot.php');
+require_once(dirname(__FILE__) . '/../Linebot.php');
 
 class Receive extends Linebot
 {
 	public function __construct()
 	{
+		$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+		if($mysqli->connect_error)
+		{
+			error_log($mysqli->connect_error);
+			exit();
+		}
+		
 		// メッセージ受信
 		$json_string = file_get_contents('php://input');
 		$jsonObj = json_decode($json_string);
@@ -90,7 +97,9 @@ class Receive extends Linebot
 				break;
 		}
 		
-		$this->send_message($from, $res_content);		
+		$this->send_message($from, $res_content);
+		
+		$mysqli->close();
 	}
 }
 new Receive;
