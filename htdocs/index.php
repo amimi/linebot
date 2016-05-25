@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__) . '/Linebot.php');
+require_once(dirname(__FILE__) . '/..//Linebot.php');
 
 class Receive extends Linebot
 {
