@@ -24,13 +24,14 @@ class Linebot {
 	/**
 	 * ユーザー情報取得
 	 */
-	public function api_get_user_profile_request($mid) {
-	    $url = "https://trialbot-api.line.me/v1/profiles?mids={$mid}";
-	    $headers = [
-	        'X-Line-ChannelID: ' . CHANNEL_ID,
-	        'X-Line-ChannelSecret: ' . CHANNEL_SECRET,
-	        'X-Line-Trusted-User-With-ACL: ' . MID
-	    ]; 
+	public function api_get_user_profile_request($mid)
+	{
+		$url = "https://trialbot-api.line.me/v1/profiles?mids={$mid}";
+		$headers = [
+			'X-Line-ChannelID: ' . CHANNEL_ID,
+			'X-Line-ChannelSecret: ' . CHANNEL_SECRET,
+			'X-Line-Trusted-User-With-ACL: ' . MID
+		]; 
 
 	    $curl = curl_init($url);
 	    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
@@ -39,9 +40,14 @@ class Linebot {
 	    curl_close($curl);
 	    
 	    error_log('get user info.');
-	    error_log($output);
+	    error_log($url);
+	    error_log(json_decode($output));
 	}
-	
+	/**
+	 * メッセージ送信
+	 * @param $to array
+	 * @param $content array
+	 */
 	public function send_message($to = [], $content)
 	{
 		if(!is_array($to))
@@ -91,9 +97,9 @@ class Linebot {
 	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 	    $output = curl_exec($curl);
 	    curl_close($curl);
-	    file_put_contents("/tmp/{$message_id}", $output);
+	    
 	    error_log('get message info.');
-	    error_log($output);
+	    error_log(json_decode($output));
 	}
 }
 
