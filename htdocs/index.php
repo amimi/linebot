@@ -65,6 +65,7 @@ class Receive extends Linebot
 						'text'=> $text
 					];
 				}
+				break;
 			
 			case parent::CONTENT_TYPE_IMAGE:
 			case parent::CONTENT_TYPE_VIDEO:
@@ -78,13 +79,15 @@ class Receive extends Linebot
 					"toType"=> 1,
 					"text"=> 'なんなんだよ'
 				];
-			
+				break;
+				
 			default:
 				$res_content = [
 					'contentType'=> parent::CONTENT_TYPE_TEXT,
 					"toType"=> 1,
 					"text"=> 'なんなんだよ'
 				];
+				break;
 		}
 		
 		$this->send_message($from, $res_content);		
