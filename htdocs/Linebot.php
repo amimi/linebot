@@ -41,7 +41,7 @@ class Linebot {
 	    
 	    error_log('get user info.');
 	    error_log($url);
-	    error_log(json_decode($output));
+	    error_log($output);
 	}
 	/**
 	 * メッセージ送信
@@ -99,7 +99,7 @@ class Linebot {
 	    curl_close($curl);
 	    
 	    error_log('get message info.');
-	    error_log(json_decode($output));
+	    error_log($output);
 	}
 }
 
