@@ -1,6 +1,6 @@
 <?php
 // 設定ファイルの読み込み
-require_once(dirname(__FILE__) . '/../config.php');
+require_once(dirname(__FILE__) . '/config.php');
 
 class Linebot {
 	
