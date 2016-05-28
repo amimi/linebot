@@ -15,12 +15,6 @@ class Linebot {
 	public $bot_icon = 'http://dl.profile.line-cdn.net/0m011df07972515fbed3c72fcffcc2ff99ae1c6d445cae';
 	public $bot_prev = 'http://linebot.amilktea.com/img/ami_bot_prev.jpg';
 
-	public $hashi_mid = 'u7bf1339fb3b42acb906e5260b38cf53c';
-	public $hashi_icon = 'http://dl.profile.line-cdn.net/0m0350b94372513e9e62c4fe9366de947d0e36e0d4e24e';
-	public $hashi_prev = 'http://linebot.amilktea.com/img/hashi_prev.jpg';
-
-	public $ami_mid = 'uba9d6e04158507756b57b4c3b952709e';
-
 	/**
 	 * ユーザー情報取得
 	 */
@@ -40,7 +34,6 @@ class Linebot {
 	    curl_close($curl);
 	    
 	    error_log('get user info.');
-	    error_log($url);
 	    error_log($output);
 	}
 	/**

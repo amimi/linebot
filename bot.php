@@ -20,7 +20,7 @@ class Bot extends Linebot
 		];
 
 		// メッセージ送信
-		$this->send_message($this->ami_mid, $res_content);
+		$this->send_message($GLOBALS['ami_mid'], $res_content);
 	}
 }
 

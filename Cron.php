@@ -24,7 +24,7 @@ class Cron extends Linebot
 			"toType"=> 1,
 			"text"=> 'おっはよーーー'
 		];
-		$this->send_message([$this->ami_mid, $this->hashi_mid], $res_content);
+		$this->send_message([$GLOBALS['ami_mid']], $res_content);
 	}
 
 	public function otsukare()
@@ -34,7 +34,7 @@ class Cron extends Linebot
 			"toType"=> 1,
 			"text"=> '今日もおつかれさまでした。'
 		];
-		$this->send_message([$this->ami_mid, $this->hashi_mid], $res_content);
+		$this->send_message([$GLOBALS['ami_mid']], $res_content);
 	}
 }
 
